@@ -58,3 +58,7 @@ dependencyManagement {
 bootJar {
   archiveFileName = "devops-blue.jar"
 }
+
+ //task wrapper(type: Wrapper) {
+   //     gradleVersion = '4.1'
+    //}
