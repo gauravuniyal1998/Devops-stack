@@ -1,2 +1,2 @@
 # Devops-stack
-Basic project on Devops practices using Kubernetes and docker. 
+Building, containerizing and deploying simple Java application using Gradle, istio, Kubernetes and docker. 
