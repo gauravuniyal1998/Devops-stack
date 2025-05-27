@@ -2,7 +2,7 @@ version: '3'
 
 networks:
   wordpress-net:
-    Name: wordpress-net
+    name: wordpress-net
     driver: bridge
 
 services:
@@ -31,6 +31,8 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
+    ports:
+      - "8000:80"
     networks:
       - wordpress-net
     depends_on:
