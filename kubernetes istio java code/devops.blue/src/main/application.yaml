@@ -1,8 +1,11 @@
 logging:
   pattern:
     console: "[Devops-Blue] %clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(---){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
-        
 spring:
+  freemarker:
+    enabled: true
+    suffix: .ftlh
+    template_loader-path: classpath:/templates/
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
@@ -16,12 +19,10 @@ spring:
       enabled: true
       max-file-size: 1MB
       max-request-size: 1MB
-    
 server:
   port: 8111
   servlet:
     context-path: /devops/blue
-
 management:
   health:
     livenessState:
@@ -42,13 +43,11 @@ management:
           - metrics
           - health
           - shutdown
-      
 springdoc:
   show-actuator: true
   swagger-ui:
     operationsSorter: alpha
     tagsSorter: alpha
-    
 devops:
   blue:
     html:
