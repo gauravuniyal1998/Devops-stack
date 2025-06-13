@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Optional;
+import org.springframework.lang.NonNull;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.FilterChain;
@@ -29,7 +30,7 @@ public class ApiResponseFilter extends OncePerRequestFilter {
   private static String podName = Optional.ofNullable(System.getenv("HOSTNAME")).orElse("not-kubernetes");
 
   @Override
-  protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+  protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain)
       throws ServletException, IOException {
     response.addHeader(HTTP_HEADER_K8S_APP_VERSION, APP_VERSION);
     response.addHeader(HTTP_HEADER_K8S_IDENTIFIER, appIdentifier);

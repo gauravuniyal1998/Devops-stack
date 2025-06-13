@@ -13,19 +13,19 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - http:
-      paths:
-      - path: /the-blue/(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: devops-blue-clusterip
-            port:
-              number: 8111
-      - path: /the-yellow/(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: devops-yellow-clusterip
-            port:
-              number: 8112
+    - http:
+        paths:
+          - path: /the-blue/(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: devops-blue-clusterip
+                port:
+                  number: 8111
+          - path: /the-yellow/(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: devops-yellow-clusterip
+                port:
+                  number: 8112

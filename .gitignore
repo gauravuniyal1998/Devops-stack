@@ -1,2 +1,8 @@
 kubernetes istio java code/devops.blue/gradle/gradle-8.14.1/lib/*.jar
 kubernetes-istio-scripts/docker/docker-data/mysql/mysql.sock
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
