@@ -3,9 +3,7 @@
  */
 package org.example.app;
 
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 class MessageUtilsTest {
     @Test void testGetMessage() {
