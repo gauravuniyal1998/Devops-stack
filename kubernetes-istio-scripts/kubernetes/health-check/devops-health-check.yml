@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: devops-blue
-          image: timpamungkas/devops-blue:1.0.0
+          image: gaurav0081/devops-blue:1.0.0
           resources:
             limits:
               cpu: "0.5"
