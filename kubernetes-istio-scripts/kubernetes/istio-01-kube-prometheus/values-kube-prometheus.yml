@@ -19,7 +19,7 @@ prometheus:
     paths:
       - /prometheus(/|$)(.*)
   prometheusSpec:
-    routePrefix: /prometheus
+    routePrefix: /
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorNamespaceSelector: {}
