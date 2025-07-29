@@ -3,22 +3,21 @@ grafana:
   ingress:
     enabled: true
     ingressClassName: nginx
-    annotations: 
+    annotations:
       ingress.kubernetes.io/rewrite-target: /
     path: /grafana
-  grafana.ini: 
+  grafana.ini:
     server:
       root_url: "%(protocol)s://%(domain)s:%(http_port)s/grafana"
       serve_from_sub_path: true
-
 prometheus:
   ingress:
     enabled: true
     ingressClassName: nginx
     annotations:
-      ingress.kubernetes.io/rewrite-target: /
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
     paths:
-    - /prometheus
+      - /prometheus(/|$)(.*)
   prometheusSpec:
     routePrefix: /prometheus
     podMonitorSelectorNilUsesHelmValues: false
@@ -32,7 +31,6 @@ prometheus:
     limit:
       cpu: "0.3"
       memory: 384Mi
-
 alertmanager:
   ingress:
     enabled: true
@@ -40,7 +38,7 @@ alertmanager:
     annotations:
       ingress.kubernetes.io/rewrite-target: /
     paths:
-    - /alertmanager
+      - /alertmanager
   alertmanagerSpec:
     routePrefix: /alertmanager
   resources:
